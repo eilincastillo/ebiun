@@ -3044,8 +3044,8 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: #932072;
-    	/*opacity: 0.75;*/
+		background-color: #F57F20;
+    	opacity: 0.75;
 		height: 3.5em;
 		left: 0;
 		line-height: 3.5em;
@@ -3245,7 +3245,7 @@ input, select, textarea {
 			-ms-transition: opacity 0.35s ease, -ms-transform 0.35s ease;
 			transition: opacity 0.35s ease, transform 0.35s ease;
 			-webkit-overflow-scrolling: touch;
-			background: #bf599c;
+			background: #F57F20;
 			border-radius: 5px;
 			display: block;
 			max-width: 100%;
