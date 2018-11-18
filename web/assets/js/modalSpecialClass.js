@@ -25,42 +25,49 @@ function openModalCinemaForum() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de cine foro');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('cine foro');
 }
 
 function openModalConversations() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de conversatorios');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('conversatorios');
 }
 
 function openModalConferences() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de conferencias');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('conferencias');
 }
 
 function openModalGroup() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de grupos de encuentro');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('grupos de encuentro');
 }
 
 function openModalFreeDance() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de baile libre');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('baile libre');
 }
 
 function openModalKanoi() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de kanoi');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('Kanoi Movimiento');
 }
 
 function openModalMandala() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de mándala');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('mándala');
 }
 
 // Close

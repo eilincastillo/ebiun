@@ -1,6 +1,6 @@
 :root {
   --modal-duration: 1s;
-  --modal-color: #428bca;
+  --modal-color: #F57F20;
 }
 
 /*body {*/
@@ -53,7 +53,7 @@
 }
 
 .modal-header {
-  background: var(--modal-color);
+  background: #F57F20;
   padding: 15px;
   color: #fff;
   border-top-left-radius: 5px;

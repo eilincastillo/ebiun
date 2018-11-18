@@ -23,36 +23,42 @@ function openModalYoga() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de yoga');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('Yoga');
 }
 
 function openModalChikun() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de chi kun');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('Chi kun');
 }
 
 function openModalMeditation() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de meditación');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('meditación');
 }
 
 function openModalRelax() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de relajación');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('Practicas de relajación');
 }
 
 function openModalPranayamas() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de pranayamas');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('pranayamas');
 }
 
 function openModalRehabilitation() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de rehabilitación');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('Programa de Rehabilitación');
 }
 
 // Close

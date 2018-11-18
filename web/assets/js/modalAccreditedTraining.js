@@ -18,18 +18,21 @@ function openModalPNL() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de coach PNL');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('Coach PNL');
 }
 
 function openModalReiki() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de sistema Reiki');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('Sistema Reiki');
 }
 
 function openModalLaughTherapy() {
   modal.style.display = 'block';
   $("#description").text('Descripción del curso de risaterapia');
   $("#profesor").text('Profesor: Pedro Pérez');
+  $("#modalTitle").text('Certificación Risoterapia');
 }
 
 
