@@ -3441,13 +3441,14 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			#banner {
-				padding: 12em 3em 12.375em 3em ;
+				padding: 7em 3em 8.25em 3em ;
 				margin-bottom: -4.75em;
 			}
 
 				#banner .inner {
 					width: 100%;
 				}
+
 
 		}
 
@@ -3474,6 +3475,13 @@ input, select, textarea {
 					font-size: 0.8em;
 				}
 
+		}
+
+		@media screen and (max-width: 470px) {
+
+				#banner .logo {
+					display:none;
+				}
 		}
 
 		body.is-preload #banner .logo {
@@ -3551,7 +3559,7 @@ input, select, textarea {
 	@media screen and (max-width: 980px) {
 
 		#wrapper > header {
-			padding: 11em 3em 7.375em 3em ;
+			padding: 9em 3em 6.25em 3em ;
 			background-size: auto, cover;
 			background-position: center, 0% 0%;
 			margin-bottom: -4.75em;
@@ -3579,6 +3587,17 @@ input, select, textarea {
 				font-size: 0.8em;
 			}
 
+			/*#banner .logo {*/
+					/*display:none;*/
+				/*}*/
+	}
+
+	@media screen and (max-width: 470px) {
+
+
+			#banner .logo {
+					display:none;
+				}
 	}
 
 	.wrapper {
