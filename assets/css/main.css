@@ -3479,9 +3479,20 @@ input, select, textarea {
 
 		@media screen and (max-width: 470px) {
 
-				#banner .logo {
-					display:none;
-				}
+            #banner .logo {
+                display:none;
+            }
+
+            #header.alt {
+                background-color: transparent;
+                background-color: #F57F20;
+                opacity: 0.75;
+            }
+
+            #header.alt h1 {
+                opacity: 1;
+                visibility: visible;
+            }
 		}
 
 		body.is-preload #banner .logo {
