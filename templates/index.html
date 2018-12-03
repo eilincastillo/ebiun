@@ -1,16 +1,13 @@
+{% load static %}
+
 <!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>ebiun</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -44,7 +41,7 @@
 					<section id="banner">
 						<div class="inner">
 							<div class="logo">
-								<img src="images/Logo-Ebiun.png" alt="">
+								<img src="{% static "media/Logo-Ebiun.png" %}" alt="">
 								<h2></h2>
 								<p style="font-weight: bold;">Somos encuentro… somos bienestar… somos unión… somos tu espacio Ebiun…</p>
 							</div>
@@ -57,7 +54,7 @@
 						<!-- One -->
 							<section id="one" class="wrapper spotlight style1">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+									<a href="#" class="image"><img src=" {% static 'media/pic01.jpg' %}" alt="" /></a>
 									<div class="content">
 										<h2 class="major">¿Quiénes somos?</h2>
 										<p>Somos un equipo multidisciplinario de profesionales calificados en el área de salud y bienestar, orientados a proporcionarte alternativas para tu crecimiento y desarrollo integral.</p>
@@ -69,7 +66,7 @@
 						<!-- Two -->
 							<section id="two" class="wrapper alt spotlight style2">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+									<a href="#" class="image"><img src="{% static 'media/pic02.jpg' %}" alt="" /></a>
 									<div class="content">
 										<h2 class="major">Misión</h2>
 										<p>Proporcionar conocimientos, técnicas y practicas vivenciales que potencien las habilidades y auto conocimiento del ser para el crecimiento integral, permitiéndote la oportunidad de sanar y alcanzar un estado de equilibrio para llevar y mantener un estilo de vida saludable. Mente, cuerpo y espíritu danzando en perfecta armonía con las leyes de la naturaleza.</p>
@@ -81,7 +78,7 @@
 						<!-- Three -->
 							<section id="three" class="wrapper spotlight style3">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+									<a href="#" class="image"><img src=" {% static 'media/pic03.jpg' %}" alt="" /></a>
 									<div class="content">
 										<h2 class="major">Visión</h2>
 										<p>Ser el primer centro de crecimiento integral en salud y bienestar a nivel Nacional e Internacional, expandiendo nuestros espacios y ampliando nuestras actividades para satisfacer las necesidades de nuestros clientes.</p>
@@ -97,28 +94,28 @@
 									<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
 									<section class="features">
 										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="{% static  'media/pic04.jpg' %}" alt="" /></a>
 											<h3 class="major">Clases regulares</h3>
 											<p>Yoga: Hatha Yoga, Pranava Yoga, Kundalini Yoga, Yoga Terapéutico y Yoga para la tercera edad. Chi kung. Meditación. Practicas de relajación. Pranayamas o practicas respiratorias. Programa para pacientes en Rehabilitación</p>
-											<a href="regularClass.html" class="special">Ver más</a>
+											<a href="servicios/clases-regulares" class="special">Ver más</a>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="{% static  'media/pic05.jpg' %}" alt="" /></a>
 											<h3 class="major">Actividades y clases especiales</h3>
 											<p>Cine Foro. Conversatorios y conferencias con invitados especiales. Gyroquinesis. Grupos de encuentros para fortalecer y profundizar lo relacionado al crecimiento integral-espiritual del ser humano. Baile Libre. Kanoi Movimiento y Mándala</p>
-											<a href="specialClass.html" class="special">Ver más</a>
+											<a href="servicios/clases-especiales" class="special">Ver más</a>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="{% static 'media/pic06.jpg' %}" alt="" /></a>
 											<h3 class="major">Formaciones acreditadas</h3>
 											<p>Coach PNL. Sistema Reiki. Certificación Risoterapia Creativa</p>
-											<a href="accreditedTraining.html" class="special">Ver más</a>
+											<a href="servicios/formaciones-acreditadas" class="special">Ver más</a>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<a href="#" class="image"><img src=" {% static 'media/pic07.jpg' %}" alt="" /></a>
 											<h3 class="major">Alquiler de Espacios Físicos</h3>
 											<p>Tenemos a su disposición un espacio físico diseñado con el confort necesario en miras de ser utilizados con fines educativos, gremiales, culturales y de desarrollo personal.</p>
-											<a href="rentOfRooms.html" class="special">Ver más</a>
+											<a href="servicios/renta-de-salones" class="special">Ver más</a>
 										</article>
 									</section>
 									<!--<ul class="actions">-->
@@ -173,12 +170,12 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
 
 	</body>
 </html>
