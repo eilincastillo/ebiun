@@ -1,17 +1,18 @@
 from django.shortcuts import render
 
-def regularClass(request):
+def regular_class(request):
     return render(request, 'services/regularClass.html')
 
 
-def specialClass(request):
+def special_class(request):
     return render(request, 'services/specialClass.html')
 
 
-def accreditedTraining(request):
+def accredited_training(request):
     return render(request, 'services/accreditedTraining.html')
 
-def rentOfRooms(request):
+
+def rent_of_rooms(request):
     return render(request, 'services/rentOfRooms.html')
 
 # def send_email(request):

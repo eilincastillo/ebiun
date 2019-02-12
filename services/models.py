@@ -19,7 +19,7 @@ class Service(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     benefit = models.TextField(blank=True)
-    length = models.CharField(max_length=10)
+    length = models.CharField(max_length=10, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
