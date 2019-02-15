@@ -13,13 +13,13 @@ def signup(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('')
+            return redirect('index')
     else:
         form = SignupForm
 
     return render(
         request=request,
-        template_name='',
+        template_name='student/signup.html',
         context={
             'form':form
         }

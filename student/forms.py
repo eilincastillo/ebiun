@@ -9,17 +9,6 @@ from student.models import Student
 
 class SignupForm(forms.Form):
     """Sign up Form"""
-    password = forms.CharField(
-        min_length=3,
-        max_length=70,
-        widget=forms.PasswordInput()
-    )
-
-    password_confirmation = forms.CharField(
-        min_length=3,
-        max_length=70,
-        widget=forms.PasswordInput()
-    )
 
     first_name = forms.CharField(min_length=2, max_length=50)
     last_name = forms.CharField(min_length=2, max_length=50)
@@ -31,6 +20,18 @@ class SignupForm(forms.Form):
     )
 
     phone_number = forms.CharField(min_length=11, max_length=13)
+
+    password = forms.CharField(
+        min_length=3,
+        max_length=70,
+        widget=forms.PasswordInput()
+    )
+
+    password_confirmation = forms.CharField(
+        min_length=3,
+        max_length=70,
+        widget=forms.PasswordInput()
+    )
 
     def clean(self):
         """Verified password and password confirmation match"""
@@ -44,12 +45,27 @@ class SignupForm(forms.Form):
 
         return data
 
+    def clean_email(self):
+        """Username must be unique"""
+        email = self.cleaned_data['email']
+        email_taken = User.objects.filter(username=email).exists()
+
+        if email_taken:
+            raise forms.ValidationError('Email ya esta registrado')
+        return email
+
     def save(self):
         """Create a new student"""
 
         data = self.cleaned_data
         data.pop('password_confirmation')
 
-        user = User.objects.create_user(**data)
+        user = User.objects.create_user(
+            first_name=data['first_name'],
+            last_name=data['last_name'],
+            email=data['email'],
+            password=data['password'],
+            username=data['email'],
+        )
         student = Student(user=user, phone_number=data['phone_number'])
         student.save()
