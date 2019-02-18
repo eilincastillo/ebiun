@@ -35,7 +35,7 @@ class SignupForm(forms.Form):
 
     def clean(self):
         """Verified password and password confirmation match"""
-        data = super().clean()
+        data = super(SignupForm,self).clean()
 
         password = data['password']
         password_confirmation = data['password_confirmation']
@@ -43,7 +43,7 @@ class SignupForm(forms.Form):
         if password != password_confirmation:
             raise forms.ValidationError('Las contraseña no son iguales')
 
-        return data
+        return password
 
     def clean_email(self):
         """Username must be unique"""
@@ -54,9 +54,29 @@ class SignupForm(forms.Form):
             raise forms.ValidationError('Email ya esta registrado')
         return email
 
+    # def clean_phone_number(self):
+    #     """phone must be between 11 and 13"""
+    #     phone = self.cleaned_data['phone_number']
+    #
+    #     if len((phone)) < 11 or len((phone)) > 13:
+    #         raise forms.ValidationError('El celular debe tener 11 digitos minimo y 13 maximo')
+    #     return phone
+
+    # def clean_password(self):
+    #     data = super().clean()
+    #
+    #     password = data['password']
+    #     password_confirmation = data['password_confirmation']
+    #     # password = self.cleaned_data['password']
+    #     # password_confirmation = self.cleaned_data['password_confirmation']
+    #
+    #     if password != password_confirmation:
+    #         raise forms.ValidationError('Las contraseña no son iguales')
+    #
+    #     return password
+
     def save(self):
         """Create a new student"""
-
         data = self.cleaned_data
         data.pop('password_confirmation')
 

@@ -53,7 +53,120 @@
                                     <form action="" method="POST">
                                         {%  csrf_token %}
 
-                                        {{ form.as_p }}
+{#                                        {{ form.as_p }}#}
+
+                                        {# First_Name field #}
+                                        <div >
+                                            <label>Nombre</label>
+                                        <input
+                                           type="text"
+                                           name="first_name"
+                                           placeholder="Nombre"
+                                           required
+                                           value="{% if form.errors %}{{ form.first_name.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.first_name.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    {# Last_Name field #}
+                                        <div >
+                                            <label>Apellido</label>
+                                        <input
+                                           type="text"
+                                           name="last_name"
+                                           placeholder="Apellido"
+                                           required
+                                           value="{% if form.errors %}{{ form.last_name.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.last_name.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    {# email field #}
+                                        <div >
+                                            <label>Correo</label>
+                                        <input
+                                           type="text"
+                                           name="email"
+                                           placeholder="Correo"
+                                           required
+                                           value="{% if form.errors %}{{ form.email.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.email.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    {# phone_number field #}
+                                        <div >
+                                            <label>Celular</label>
+                                        <input
+                                           type="text"
+                                           name="phone_number"
+                                           placeholder="Celular"
+                                           required
+                                           value="{% if form.errors %}{{ form.phone_number.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.phone_number.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    {# password field #}
+                                        <div >
+                                            <label>Contraseña</label>
+                                        <input
+                                           type="password"
+                                           name="password"
+                                           placeholder="Contraseña"
+                                           required
+                                           value="{% if form.errors %}{{ form.password.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.password.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    <br>
+
+                                    {# password_confirmation field #}
+                                        <div >
+                                            <label>Confirme contraseña</label>
+                                        <input
+                                           type="password"
+                                           name="password_confirmation"
+                                           placeholder="Confirme contraseña"
+                                           required
+                                           value="{% if form.errors %}{{ form.password_confirmation.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.password_confirmation.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
 
                                     <button class="btn btn-primary btn-block mt-5" type="submit">Registrate!</button>
 
