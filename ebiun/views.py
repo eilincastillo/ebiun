@@ -1,7 +1,7 @@
 """Ebiun views"""
 
 # Django
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
@@ -39,7 +39,9 @@ def login_user(request):
             user = authenticate(request, username=data['email'], password=data['password'])
             if user:
                 login(request, user)
-                return redirect('index')
+                # return redirect('/estudiantes/dashboard', id=user.id)
+                return redirect('student:dashboard', id=user.id)
+                # return HttpResponseRedirect(reverse('signup'))
 
             else:
                 return render(request, 'login.html', {'error': 'Username o contraseña invalida'})

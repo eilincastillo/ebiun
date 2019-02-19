@@ -4,12 +4,14 @@
 from django.urls import path
 
 # View
-from .views import signup
+from student import views
 
 
 urlpatterns =[
     path(route='registro/',
-         view=signup,
+         view=views.signup,
          name='signup'),
+
+    path('dashboard/<int:id>/', views.dashboard, name='dashboard'),
 
 ]
