@@ -30,9 +30,9 @@ def signup(request):
     )
 
 
-def dashboard(request, id):
+def dashboard(request):
     """Dashboard student view"""
-    student = Student.objects.get(user_id=id)
+    student = Student.objects.get(user_id=request.user.id)
     student_services = student.service.all()
     services = Service.objects.all().exclude(id__in=student_services)
 
@@ -43,6 +43,32 @@ def dashboard(request, id):
             'student':student,
             'student_services':student_services,
             'services':services
+        }
+    )
+
+
+def signup_class(request, id):
+    """Singn up class view"""
+    id_user = None
+    if request.user.is_authenticated:
+        id_user = request.user.id
+    student = Student.objects.get(user_id=id_user)
+    service = Service.objects.get(id=id)
+
+    student.service.add(service)
+
+    # student = Student.objects.get(user_id=id)
+    student_services = student.service.all()
+    services = Service.objects.all().exclude(id__in=student_services)
+
+
+    return render(
+        request=request,
+        template_name='student/dashboardStudent.html',
+        context={
+            'student': student,
+            'student_services': student_services,
+            'services': services
         }
     )
 

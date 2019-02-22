@@ -14,7 +14,7 @@ urlpatterns = [
     path('admin/',
          admin.site.urls),
 
-    path('servicios/', include(('services.urls','services'), namespace='sevices')),
+    path('servicios/', include(('services.urls','services'), namespace='services')),
     path('estudiantes/', include(('student.urls','student'), namespace='student')),
     path('', index, name='index'),
     path('login/', login_user, name='login_user')

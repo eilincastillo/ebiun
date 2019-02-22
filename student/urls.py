@@ -7,11 +7,14 @@ from django.urls import path
 from student import views
 
 
+app_name = 'student'
 urlpatterns =[
     path(route='registro/',
          view=views.signup,
          name='signup'),
 
-    path('dashboard/<int:id>/', views.dashboard, name='dashboard'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+
+    path('signup-class/<int:id>/', views.signup_class, name='signupClass'),
 
 ]

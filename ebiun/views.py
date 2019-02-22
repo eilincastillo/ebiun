@@ -40,7 +40,7 @@ def login_user(request):
             if user:
                 login(request, user)
                 # return redirect('/estudiantes/dashboard', id=user.id)
-                return redirect('student:dashboard', id=user.id)
+                return redirect('student:dashboard')
                 # return HttpResponseRedirect(reverse('signup'))
 
             else:

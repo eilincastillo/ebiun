@@ -6,10 +6,8 @@
 		<title>Clases Regulares</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
 		<link rel="stylesheet" href="{% static 'css/modal.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
-		<!--<link rel="stylesheet" href="assets/css/modalRegularClass.css"/>-->
 		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
 
 	</head>
@@ -39,6 +37,45 @@
 							<a href="#" class="close">Close</a>
 						</div>
 					</nav>
+
+            <!--Modal of services-->
+            {% for service in services %}
+                <div id="modal{{ service.id }}" class="modal">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<span class="close" id="close{{ service.id }}">&times;</span>
+						<h2 id="modalTitle">{{ service.name }}</h2>
+					  </div>
+					  <div class="modal-body">
+						<p id="description" style=" color: #000000;">{{ service.description }}</p>
+						<p id="length" style=" color: #000000;">Duración: {{ service.length }} Hora</p>
+                          <a class="btn btn-primary" href="{% url 'student:signupClass' id=service.id %}">Inscribir esta clase</a>
+					  </div>
+					  <div class="modal-footer">
+						<h3></h3>
+					  </div>
+					</div>
+				  </div>
+            {% endfor %}
+
+            <!--Modal of student_services-->
+            {% for service in student_services %}
+                <div id="modal{{ service.id }}" class="modal">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<span class="close" id="close{{ service.id }}">&times;</span>
+						<h2 id="modalTitle">{{ service.name }}</h2>
+					  </div>
+					  <div class="modal-body">
+						<p id="description" style=" color: #000000;">{{ service.description }}</p>
+						<p id="length" style=" color: #000000;">Duración: {{ service.length }} Hora</p>
+					  </div>
+					  <div class="modal-footer">
+						<h3></h3>
+					  </div>
+					</div>
+				  </div>
+            {% endfor %}
 
 
 				<!-- Wrapper -->
@@ -80,7 +117,65 @@
 			<script src="{% static 'js/breakpoints.min.js' %}"></script>
 			<script src="{% static 'js/util.js' %}"></script>
 			<script src="{% static 'js/main.js' %}"></script>
-{#			<script src="{% static 'js/modalRegularClass.js' %}"></script>#}
+
+        <script>
+        {% for service in services %}
+            // Get the modal
+var modal{{ service.id }} = document.getElementById('modal{{ service.id }}');
+
+// Get the button that opens the modal
+var btn{{ service.id }} = document.getElementById("button{{ service.id }}");
+
+// Get the <span> element that closes the modal
+var span{{ service.id }} = document.getElementById("close{{ service.id }}");
+
+// When the user clicks the button, open the modal
+btn{{ service.id }}.onclick = function() {
+  modal{{ service.id }}.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span{{ service.id }}.onclick = function() {
+  modal{{ service.id }}.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal{{ service.id }}) {
+    modal{{ service.id }}.style.display = "none";
+  }
+}
+        {% endfor %}
+
+                {% for service in student_services %}
+            // Get the modal
+var modal{{ service.id }} = document.getElementById('modal{{ service.id }}');
+
+// Get the button that opens the modal
+var btn{{ service.id }} = document.getElementById("button{{ service.id }}");
+
+// Get the <span> element that closes the modal
+var span{{ service.id }} = document.getElementById("close{{ service.id }}");
+
+// When the user clicks the button, open the modal
+btn{{ service.id }}.onclick = function() {
+  modal{{ service.id }}.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span{{ service.id }}.onclick = function() {
+  modal{{ service.id }}.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal{{ service.id }}) {
+    modal{{ service.id }}.style.display = "none";
+  }
+}
+        {% endfor %}
+
+</script>
 
 
 	</body>

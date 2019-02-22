@@ -13,12 +13,18 @@ def regular_class(request):
         request=request,
         template_name='services/regularClass.html',
         context={
-            'services' : services
+            'services': services
             })
 
 
 def special_class(request):
-    return render(request, 'services/specialClass.html')
+    services = find_services(type_name='special_class')
+    return render(
+        request=request,
+        template_name='services/specialClass.html',
+        context={
+            'services': services
+            })
 
 
 def accredited_training(request):
