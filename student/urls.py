@@ -17,4 +17,6 @@ urlpatterns =[
 
     path('signup-class/<int:id>/', views.signup_class, name='signupClass'),
 
+    path('unsubscribe-class/<int:id>/', views.unsubscribe, name='unsubscribe'),
+
 ]

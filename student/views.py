@@ -72,3 +72,28 @@ def signup_class(request, id):
         }
     )
 
+
+def unsubscribe(request, id):
+    """Unsubscribe a service."""
+    id_user = None
+    if request.user.is_authenticated:
+        id_user = request.user.id
+    student = Student.objects.get(user_id=id_user)
+    service = Service.objects.get(id=id)
+
+    student.service.remove(service)
+
+    # student = Student.objects.get(user_id=id)
+    student_services = student.service.all()
+    services = Service.objects.all().exclude(id__in=student_services)
+
+    return render(
+        request=request,
+        template_name='student/dashboardStudent.html',
+        context={
+            'student': student,
+            'student_services': student_services,
+            'services': services
+        }
+    )
+

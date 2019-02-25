@@ -69,6 +69,7 @@
 					  <div class="modal-body">
 						<p id="description" style=" color: #000000;">{{ service.description }}</p>
 						<p id="length" style=" color: #000000;">Duración: {{ service.length }} Hora</p>
+                          <a class="btn btn-primary" href="{% url 'student:unsubscribe' id=service.id %}">Desuscribir esta clase</a>
 					  </div>
 					  <div class="modal-footer">
 						<h3></h3>
