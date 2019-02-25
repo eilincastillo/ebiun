@@ -2,6 +2,7 @@
 
 # Django
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 # Forms
 from student.forms import SignupForm
@@ -29,7 +30,7 @@ def signup(request):
         }
     )
 
-
+@login_required
 def dashboard(request):
     """Dashboard student view"""
     student = Student.objects.get(user_id=request.user.id)
@@ -46,7 +47,7 @@ def dashboard(request):
         }
     )
 
-
+@login_required
 def signup_class(request, id):
     """Singn up class view"""
     id_user = None
@@ -72,7 +73,7 @@ def signup_class(request, id):
         }
     )
 
-
+@login_required
 def unsubscribe(request, id):
     """Unsubscribe a service."""
     id_user = None
