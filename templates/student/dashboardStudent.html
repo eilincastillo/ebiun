@@ -92,6 +92,11 @@
 
                                     <br><br><br>
                                     <h3 class="major">También te puedes inscribir en estas clases</h3>
+                                    <div >
+                                        {% if  error %}
+                                            {{ error }}
+                                        {% endif %}
+                                    </div>
                                     {% for service in services %}
                                         <div style=" display: inline-block; margin: 10px;"><button id="button{{ service.id }}" class="button primary">{{ service.name }}</button></div>
                                     {% endfor %}

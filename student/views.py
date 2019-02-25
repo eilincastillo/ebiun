@@ -51,12 +51,18 @@ def dashboard(request):
 def signup_class(request, id):
     """Singn up class view"""
     id_user = None
+    error = None
     if request.user.is_authenticated:
         id_user = request.user.id
     student = Student.objects.get(user_id=id_user)
+    students = Student.objects.all()
     service = Service.objects.get(id=id)
+    count_student_inscribed = Student.objects.filter(service__in=[service]).count()
 
-    student.service.add(service)
+    if count_student_inscribed < service.capacity:
+        student.service.add(service)
+    else:
+        error = 'Lo sentimos la clase de '+service.name+' esta llena. Le invitamos a inscribirte en otra clase'
 
     # student = Student.objects.get(user_id=id)
     student_services = student.service.all()
@@ -69,7 +75,8 @@ def signup_class(request, id):
         context={
             'student': student,
             'student_services': student_services,
-            'services': services
+            'services': services,
+            'error': error
         }
     )
 
@@ -82,6 +89,7 @@ def unsubscribe(request, id):
     student = Student.objects.get(user_id=id_user)
     service = Service.objects.get(id=id)
 
+    # if student.service.get(student__service__in=service):
     student.service.remove(service)
 
     # student = Student.objects.get(user_id=id)
