@@ -1,10 +1,13 @@
 """Services view"""
 
 # Django
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Model
 from services.models import Service
+
+# Forms
+from .forms import NewServiceForm
 
 
 def regular_class(request):
@@ -35,9 +38,47 @@ def rent_of_rooms(request):
     return render(request, 'services/rentOfRooms.html')
 
 
+def new_service(request):
+    """Save service view"""
+    if request.method == 'POST':
+        form = NewServiceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    else:
+        form = NewServiceForm
+
+    return render(
+        request=request,
+        template_name='services/newServices.html',
+        context={
+            'form': form
+        }
+    )
+
+
+def save_service(request):
+    """Save service view"""
+    if request.method == 'POST':
+        form = NewServiceForm(request.POST)
+        form.save()
+        redirect('dashboard')
+    else:
+        form = NewServiceForm
+
+    return render(
+        request=request,
+        template_name='dashboardAdmin.html',
+        context={
+            'form':form
+        }
+    )
+
+
 def find_services(type_name):
     services = Service.objects.filter(type=type_name)
     return services
+
 
 # def send_email(request):
 #     if request.method == 'POST':

@@ -4,7 +4,7 @@
 from django.urls import path
 
 # View
-from .views import regular_class, special_class, accredited_training, rent_of_rooms
+from .views import regular_class, special_class, accredited_training, rent_of_rooms, new_service
 
 
 urlpatterns =[
@@ -23,4 +23,8 @@ urlpatterns =[
     path(route='renta-de-salones/',
          view=rent_of_rooms,
          name='rent_of_rooms'),
+
+    path(route='nuevo-servicio/',
+         view=new_service,
+         name='new_service'),
 ]

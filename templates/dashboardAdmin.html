@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Clases Regulares</title>
+		<title>Dashboard</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'css/modal.css' %}" />
@@ -114,6 +114,7 @@
 												</tfoot>
 											</table>
 										</div>
+                                    <div style=" display: inline-block; margin: 10px;"><button id="button-new-services" class="button primary" onclick="location.href='{% url 'services:new_service' %}';">Agregar nuevo servicio</button></div>
 									</section>
 
 

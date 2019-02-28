@@ -1,0 +1,197 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Nuevo Servicio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
+		<link rel="stylesheet" href="{% static 'css/modal.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<!--<link rel="stylesheet" href="assets/css/modalRegularClass.css"/>-->
+		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
+
+
+	</head>
+	<body class="is-preload">
+			<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/">ebiun</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/" style="font-weight: bold;">Inicio</a></li>
+								<li><a href="servicios/clases-especiales" style="font-weight: bold;">Clases Especiles</a></li>
+								<li><a href="servicios/formaciones-acreditadas" style="font-weight: bold;">Formaciones Acreditadas</a></li>
+								<li><a href="servicios/renta-de-salones" style="font-weight: bold;">Alquiler de Espacios Físicos</a></li>
+								<!--<li><a href="#">Sign Up</a></li>-->
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<h3 class="major">Nuevo servicio</h3>
+
+                                    <form action="" method="POST">
+                                        {%  csrf_token %}
+
+{#                                        {{ form.as_p }}#}
+
+                                        {# Name field #}
+                                        <div >
+                                            <label>Nombre</label>
+                                        <input
+                                           type="text"
+                                           name="name"
+                                           placeholder="Nombre"
+                                           required
+                                           value="{% if form.errors %}{{ form.name.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.name.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    {# Description field #}
+                                        <div >
+                                            <label>Descripción</label>
+                                        <textarea rows="4" cols="50" name="description" placeholder="Descripcion"
+                                           required
+                                           value="{% if form.errors %}{{ form.description.value }}{% endif %}"></textarea>
+                                            <div >
+                                                {% for error in form.description.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    {# Type field #}
+                                        <div >
+                                            <label>Type</label>
+                                        <select name="type" required>
+                                          <option value="regular_class">Clase regular</option>
+                                          <option value="special_class">Clase Especial</option>
+                                          <option value="accredited_training">Formaciones Acreditadas</option>
+                                          <option value="rent_of_rooms">Alquiler de salones</option>
+                                        </select>
+                                            <div >
+                                                {% for error in form.type.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    {# benefit field #}
+                                        <div >
+                                            <label>Beneficios</label>
+                                        <input
+                                           type="text"
+                                           name="benefit"
+                                           placeholder="Beneficios"
+                                           value="{% if form.errors %}{{ form.benefit.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.benefit.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    {# length field #}
+                                        <div >
+                                            <label>Duración</label>
+                                        <select name="length">
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
+                                          <option value="7">7</option>
+                                          <option value="8">8</option>
+                                          <option value="9">9</option>
+                                          <option value="10">10</option>
+                                        </select>
+                                            <div >
+                                                {% for error in form.length.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    <br>
+
+                                    {# capacity field #}
+                                        <div >
+                                            <label>Capacidad</label>
+                                        <input
+                                           type="number"
+                                           name="capacity"
+                                           placeholder="Capacidad"
+                                           min="1" max="100" step="1"
+                                           required
+                                           value="{% if form.errors %}{{ form.capacity.value }}{% endif %}"
+                                        />
+                                            <div >
+                                                {% for error in form.capacity.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+                                    <br>
+
+                                    <button class="btn btn-primary btn-block mt-5" type="submit">Guardar</button>
+
+                                    </form>
+
+								</div>
+							</div>
+
+					</section>
+
+				<!-- Footer -->
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}" ></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+{#			<script src="{% static 'js/modalRegularClass.js' %}"></script>#}
+
+
+	</body>
+
+</html>
