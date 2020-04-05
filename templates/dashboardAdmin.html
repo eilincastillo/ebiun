@@ -1,0 +1,145 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Dashboard</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/modal.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
+
+	</head>
+	<body class="is-preload">
+			<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/">ebiun</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/" style="font-weight: bold;">Inicio</a></li>
+								<li><a href="servicios/clases-especiales" style="font-weight: bold;">Clases Especiles</a></li>
+								<li><a href="servicios/formaciones-acreditadas" style="font-weight: bold;">Formaciones Acreditadas</a></li>
+								<li><a href="servicios/renta-de-salones" style="font-weight: bold;">Alquiler de Espacios Físicos</a></li>
+								<!--<li><a href="#">Sign Up</a></li>-->
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+
+<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Elements</h2>
+								<p>Phasellus non pulvinar erat. Fusce tincidunt nisl eget ipsum.</p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+                                <section>
+										<h3 class="major">Estudiantes</h3>
+{#										<h4>Default</h4>#}
+										<div class="table-wrapper" style="text-align: center">
+											<table>
+												<thead>
+													<tr>
+														<th>Nombre</th>
+														<th>Telefono</th>
+														<th>Email </th>
+													</tr>
+												</thead>
+												<tbody>
+                                                {% for student in students %}
+                                                    <tr>
+														<td>{{ student.user.first_name }} {{ student.user.last_name }}</td>
+														<td>{{ student.phone_number }}</td>
+														<td>{{ student.user.email }}</td>
+													</tr>
+                                                {% endfor %}
+												</tbody>
+												<tfoot>
+{#													<tr>#}
+{#														<td colspan="2"></td>#}
+{#														<td>100.00</td>#}
+{#													</tr>#}
+												</tfoot>
+											</table>
+										</div>
+									</section>
+                                    <br><br>
+									<section>
+										<h3 class="major">Servicios</h3>
+{#										<h4>Default</h4>#}
+										<div class="table-wrapper" style="text-align: center">
+											<table>
+												<thead>
+													<tr>
+														<th>Nombre</th>
+														<th>Tipo de Servicio</th>
+														<th>Disponibilidad </th>
+													</tr>
+												</thead>
+												<tbody>
+                                                {% for service in services %}
+                                                    <tr>
+														<td>{{ service.name }}</td>
+														<td>{% if service.type == "regular_class" %}
+                                                            Clase Regular {% elif service.type == "special_class" %} Clases especial {% else %} Entrenamientos acreditados
+														{% endif %}</td>
+														<td>{{ service.availability }}</td>
+													</tr>
+                                                {% endfor %}
+												</tbody>
+												<tfoot>
+{#													<tr>#}
+{#														<td colspan="2"></td>#}
+{#														<td>100.00</td>#}
+{#													</tr>#}
+												</tfoot>
+											</table>
+										</div>
+                                    <div style=" display: inline-block; margin: 10px;"><button id="button-new-services" class="button primary" onclick="location.href='{% url 'services:new_service' %}';">Agregar nuevo servicio</button></div>
+									</section>
+
+
+								</div>
+							</div>
+
+					</section>
+
+				<!-- Footer -->
+
+				<!-- Footer -->
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}" ></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+
+
+	</body>
+
+</html>
